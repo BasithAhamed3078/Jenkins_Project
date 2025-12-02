@@ -7,12 +7,13 @@ from win32com.client import gencache
 # Initialize CANoe Application
 CANoe = win32.DispatchEx("CANoe.Application")
 time.sleep(10)
-CANoe.Open(r"D:\Jenkins\ACC_RBS\pyrbs.cfg")
+CANoe.Open(r"%WORKSPACE%\ACC_RBS\pyrbs.cfg")
 time.sleep(2)
-
+workspace = os.environ['WORKSPACE']
 # Test configuration details
 testConfigName = "AutomatedTests_VT_02"
-testUnitsFolder = r"D:\Jenkins\vTEST_Project\ACC_Testing"  # Folder containing .vtuexe files
+testUnitsFolder = os.path.join(workspace, "vTEST_Project", "ACC_Testing")
+#testUnitsFolder = r"D:\Jenkins\vTEST_Project\ACC_Testing"  # Folder containing .vtuexe files
 
 # Ensure CANoe module
 canoeModul = gencache.EnsureModule('{7F31DEB0-5BCC-11D3-8562-00105A3E017B}', 0x0, 1, 54)
@@ -77,7 +78,7 @@ print("Opening the vtest report..!")
 time.sleep(1)
 
 # Open the test report file
-report_file_path = os.path.join(r"D:\Jenkins\ACC_RBS\Report_AutomatedTests_VT_02.vtestreport")
+report_file_path = os.path.join(workspace, "ACC_RBS", "Report_AutomatedTests_VT_02.vtestreport")
 if os.path.exists(report_file_path):
     print(f"Opening report file: {report_file_path}")
     os.startfile(report_file_path)
