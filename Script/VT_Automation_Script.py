@@ -3,13 +3,14 @@ import time
 import os
 from win32com.client import gencache
 #import pythoncom
-
+workspace = os.environ['WORKSPACE']
 # Initialize CANoe Application
 CANoe = win32.DispatchEx("CANoe.Application")
 time.sleep(10)
-CANoe.Open(r"%WORKSPACE%\ACC_RBS\pyrbs.cfg")
+cfg_path = os.path.join(workspace, "ACC_RBS", "pyrbs.cfg")
+CANoe.Open(cfg_path)
 time.sleep(2)
-workspace = os.environ['WORKSPACE']
+
 # Test configuration details
 testConfigName = "AutomatedTests_VT_02"
 testUnitsFolder = os.path.join(workspace, "vTEST_Project", "ACC_Testing")
