@@ -7,8 +7,7 @@ workspace = os.getenv("WORKSPACE")
 # Initialize CANoe Application
 CANoe = win32.DispatchEx("CANoe.Application")
 time.sleep(10)
-cfg_path = os.path.join(workspace, "ACC_RBS", "pyrbs.cfg" )
-CANoe.Open(cfg_path)
+CANoe.Open(r"D:\Jenkins\ACC_RBS\pyrbs.cfg")
 time.sleep(2)
 
 # Test configuration details
