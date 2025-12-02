@@ -1,7 +1,7 @@
 [NStatePersistence]
 Signature=VectorStatePersistence
 [VGlobalMeasurementIndex]
-mMeasurementIndex=102
+mMeasurementIndex=103
 [VTestConfigurationConfigData]
 AutomatedTests_VT_01_NextTestRun=1
 AutomatedTests_VT_02_NextTestRun=2
